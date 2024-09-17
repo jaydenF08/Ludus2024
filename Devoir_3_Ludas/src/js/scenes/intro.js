@@ -1,4 +1,4 @@
-class Intro extends Phaser.Scene {
+class Accu extends Phaser.Scene {
 
     preload() {
 
