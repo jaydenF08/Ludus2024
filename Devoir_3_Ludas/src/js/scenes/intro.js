@@ -1,53 +1,40 @@
-class Accu extends Phaser.Scene {
+class Intro extends Phaser.Scene {
+    constructor() {
+        super({ key: "Intro"});
+    }
 
     preload() {
+        this.load.image("fond", "assets/fond.png");
+        this.load.image("Commencer", "assets/Commencer.png");
+        this.load.image("Crédit", "assets/CRÉDIT.png");
+        this.load.image("Comment jouer", "assets/COMMENT JOUER.png");
+
 
     }
 
     create() {
-        // cils
-let cil = this.add.graphics();
+        // fond image
+        let scaleX = 0;
+        let scaleY = 0;
+        let scale = 0;
 
+        this.fond = this.add.image(config.width / 2, config.height / 2, "fond");
+        scaleX = config.width / this.fond.width;
+        scaleY = config.height / this.fond.height;
+        scale = Math.max(scaleX, scaleY);
+        this.fond.setScale(scale);
 
-cil.lineStyle(6, 0x000000, 1);
+// Bouton Commencer
+const Commencer = this.add.image(400,480, "Commencer").setInteractive().setScale(0.5);
+Commencer.on("pointerdown", () => this.sceneéstarté("Jeu"))
 
-// Ligne verticale
-cil.moveTo(300, 200);
-cil.lineTo(300, 150);
+// Bouton Crédits
+const Crédit = this.add.image(650,475, "Crédit").setInteractive().setScale(0.5);
+Commencer.on("pointerdown", () => this.sceneéstarté("Jeu"))
 
-cil.moveTo(300, 200);
-cil.lineTo(275, 150);
-
-cil.moveTo(300, 200);
-cil.lineTo(325, 150);
-
-cil.strokePath(); // Important
-
-
-        
-    let graphics = this.add.graphics();
-
- //arc
- graphics.lineStyle(15, 0x000000, 1);
- let startAngle = Phaser.Math.DegToRad(0);
- let endAngle = Phaser.Math.DegToRad(180);
- graphics.beginPath();
-
- graphics.arc(400, 340, 100, startAngle, endAngle);
- graphics.strokePath();
-
- //yeux
- let graphicss = this.add.graphics();
-
- graphics.lineStyle(3, 0x344f95);
- graphics.fillStyle(0xffffff, 1);
- graphics.fillCircle(300, 200, 30);
-
- graphics.lineStyle(10, 0x000000);
- graphics.fillStyle(0xffffff, 1);
- graphics.strokeCircle(300, 200, 30);
- graphics.fillCircle(470, 200, 30);
-
+// Bouton Comment jouer
+const Commener = this.add.image(130,480, "Comment jouer").setInteractive().setScale(0.4);
+Commencer.on("pointerdown", () => this.sceneéstarté("Jeu"))
 
 
 
